@@ -15,7 +15,7 @@ public class OgrenciServisi {
     private static final String updateQuery = "UPDATE stajyerler_1 Set surname = ? where id =?";
     private static final String insertQuery = "INSERT INTO stajyerler_1 (name,surname,active,age)VALUES(?,?,?,?)";
 
-    private static final String deleteQuery = "delete from stajyerler_1 where id=? ";
+    private static final String deleteQuery = "delete from stajyerler_1 where stajyer_id=? ";
 
 
     public List<Ogrenci> ogrenciListDon() throws SQLException {
@@ -26,15 +26,15 @@ public class OgrenciServisi {
 }
 
     public Integer stajyerupdate() throws SQLException {
-        return DBOparation.updateProcess(updateQuery,"Durmaz",7);
+        return DBOparation.updateProcess(updateQuery);
     }
 
     public Integer stajyerInsert() throws  SQLException{
-        return DBOparation.insertProcess(insertQuery,"ferhat","Mehmet",true,25);
+        return DBOparation.insertProcess(insertQuery);
     }
 
     public Integer stajyerDelete() throws  SQLException{
-        return DBOparation.deleteProcess(deleteQuery,3);
+        return DBOparation.deleteProcess(deleteQuery);
 }
 
      }

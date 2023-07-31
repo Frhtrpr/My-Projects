@@ -29,26 +29,19 @@ public class DBOparation {
         }
     }
 
-        public static Integer updateProcess(String oneParamUpdateSql,String surname,Integer id){
+        public static Integer updateProcess(String oneParamUpdateSql){
         try (Connection myConnection = openConnection()){
             PreparedStatement myPreparedStatement = myConnection.prepareStatement(oneParamUpdateSql);
-            myPreparedStatement.setString(1,surname);
-            myPreparedStatement.setInt(2,id);
             return myPreparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static Integer insertProcess(String oneParaminsertSql,String name,String surname,Boolean active,Integer age) {
+    public static Integer insertProcess(String insertSql) {
         try (Connection myConnection = openConnection()) {
 
-            PreparedStatement myPreparedStatement = myConnection.prepareStatement(oneParaminsertSql);
-
-            myPreparedStatement.setString(1, name);
-            myPreparedStatement.setString(2, surname);
-            myPreparedStatement.setBoolean(3, active);
-            myPreparedStatement.setInt(4, age);
+            PreparedStatement myPreparedStatement = myConnection.prepareStatement(insertSql);
 
 
             return myPreparedStatement.executeUpdate();
@@ -57,11 +50,15 @@ public class DBOparation {
 
 
         }
+
     }
-    public static Integer deleteProcess(String oneParamdeleteSql,Integer id){
+
+
+
+
+    public static Integer deleteProcess(String oneParamdeleteSql){
         try (Connection myConnection=openConnection()){
             PreparedStatement myPreparedStatement= myConnection.prepareStatement(oneParamdeleteSql);
-            myPreparedStatement.setInt(1,id);
             return myPreparedStatement.executeUpdate();
         }
         catch (SQLException e) {

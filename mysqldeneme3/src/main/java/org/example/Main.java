@@ -2,14 +2,10 @@ package org.example;
 
 import org.example.Dattabase.HayvanServisi;
 import org.example.Dattabase.model.Hayvan;
-import org.example.Dattabase.model.Ogrenci;
 import org.example.Dattabase.OgrenciServisi;
 
 import java.sql.SQLException;
-import java.util.List;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
 
     private static final String connectionUrl="jdbc:mysql://localhost:3306/deneme_2";
@@ -27,13 +23,14 @@ public class Main {
         //System.out.println(ogrenciServisi.stajyerDelete());
 
 
-        List<Ogrenci> myOgrenciList = ogrenciServisi.ogrenciListDon();
-        myOgrenciList.forEach(ogrenci -> System.out.println(ogrenci));
+        Hayvan hayvan = new Hayvan();
 
-        List<Hayvan> myHayvanList = hayvanServisi.hayvanListDon();
-        myHayvanList.forEach(hayvan -> System.out.println(hayvan.getIsim()));
+        hayvan.setBeslenme("etcil");
+        hayvan.setYaşamyeri("deniz");
 
 
+
+        hayvanServisi.hayvanUpdate(hayvan, "shark");
 
 
 
